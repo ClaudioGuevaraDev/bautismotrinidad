@@ -1,3 +1,4 @@
+import imagesRoutes from "./images";
 import messagesRoutes from "./messages";
 
-export { messagesRoutes };
+export { imagesRoutes, messagesRoutes };
