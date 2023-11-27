@@ -3,13 +3,18 @@ import cors from "cors";
 import express from "express";
 import fileupload from "express-fileupload";
 
-import { CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET, PORT } from "./config";
+import {
+  CLOUDINARY_API_KEY,
+  CLOUDINARY_API_SECRET,
+  CLOUDINAY_CLOUD_NAME,
+  PORT,
+} from "./config";
 import { imagesRoutes, messagesRoutes } from "./routes";
 
 const app = express();
 
 cloudinary.config({
-  cloud_name: "dtvv3yime",
+  cloud_name: CLOUDINAY_CLOUD_NAME,
   api_key: CLOUDINARY_API_KEY,
   api_secret: CLOUDINARY_API_SECRET,
 });
