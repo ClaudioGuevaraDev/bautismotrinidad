@@ -1,5 +1,6 @@
+import authRoutes from "./auth";
 import imagesRoutes from "./images";
 import messagesRoutes from "./messages";
 import settingsRoutes from "./settings";
 
-export { imagesRoutes, messagesRoutes, settingsRoutes };
+export { authRoutes, imagesRoutes, messagesRoutes, settingsRoutes };

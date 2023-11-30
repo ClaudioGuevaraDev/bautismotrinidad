@@ -9,7 +9,12 @@ import {
   CLOUDINAY_CLOUD_NAME,
   PORT,
 } from "./config";
-import { imagesRoutes, messagesRoutes, settingsRoutes } from "./routes";
+import {
+  authRoutes,
+  imagesRoutes,
+  messagesRoutes,
+  settingsRoutes,
+} from "./routes";
 
 const app = express();
 
@@ -28,9 +33,10 @@ app.use(
     useTempFiles: true,
     tempFileDir: "/tmp/",
     createParentPath: true,
-  }),
+  })
 );
 
+app.use("/api/auth", authRoutes);
 app.use("/api/messages", messagesRoutes);
 app.use("/api/images", imagesRoutes);
 app.use("/api/settings", settingsRoutes);
