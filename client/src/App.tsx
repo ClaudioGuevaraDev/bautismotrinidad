@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useRef, useState } from "react";
+
+import CollageSection from "./components/CollageSection";
+import InvitationSection from "./components/InvitationSection";
+import VideoSection from "./components/VideoSection";
+import { SectionsEnum } from "./enums/sections.enums";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  const [section, setSection] = useState<SectionsEnum>(SectionsEnum.INVITATION);
+
+  const resetAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.play();
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <section className="from-pink-500 to-pink-300 bg-gradient-to-tr antialiased min-h-screen h-full flex items-center">
+      <audio
+        ref={audioRef}
+        src="/audios/cancion2.mp3"
+        controls
+        className="hidden"
+        onEnded={resetAudio}
+      />
+      <div className="w-full max-w-screen-xl px-4 py-8 mx-auto lg:px-6">
+        {section === SectionsEnum.INVITATION && (
+          <InvitationSection setSection={setSection} audioRef={audioRef} />
+        )}
+        {section === SectionsEnum.COLLAGE && (
+          <CollageSection setSection={setSection} />
+        )}
+        {section === SectionsEnum.VIDEO && <VideoSection />}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </section>
+  );
 }
 
-export default App
+export default App;
