@@ -11,10 +11,16 @@
     "format": "prettier --write src/**/*"
   },
   "dependencies": {
+    "@headlessui/react": "1.7.17",
+    "axios": "1.6.2",
     "react": "18.2.0",
+    "react-auth-kit": "2.12.7",
     "react-dom": "18.2.0",
+    "react-jwt": "1.2.0",
     "react-phone-input-2": "2.15.1",
-    "remove": "^0.1.5"
+    "react-router-dom": "6.20.0",
+    "remove": "^0.1.5",
+    "sonner": "1.2.4"
   },
   "devDependencies": {
     "@types/react": "18.2.37",
