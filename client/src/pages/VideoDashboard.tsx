@@ -4,6 +4,7 @@ import { useState } from "react";
 import DashboardLayout from "../components/DashboardLayout";
 import ImagesDashboard from "../components/ImagesDashboard";
 import MessagesDashboard from "../components/MessagesDashboard";
+import SettingsDashboard from "../components/SettingsDashboard";
 
 const sections = ["Mensajes", "Imágenes", "Configuraciones"];
 
@@ -38,7 +39,9 @@ function VideoDashboard() {
             <Tab.Panel>
               <ImagesDashboard />
             </Tab.Panel>
-            <Tab.Panel>Configuraciones</Tab.Panel>
+            <Tab.Panel>
+              <SettingsDashboard />
+            </Tab.Panel>
           </Tab.Panels>
         </Tab.Group>
       </div>

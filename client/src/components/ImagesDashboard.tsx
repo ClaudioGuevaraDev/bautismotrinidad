@@ -35,6 +35,7 @@ function ImagesDashboard() {
         },
       });
       mutate("/api/images");
+      toast.success("Imagen subida");
     } catch (error) {
       toast.error("Error al subir la imagen");
     }
@@ -53,6 +54,7 @@ function ImagesDashboard() {
         },
       });
       mutate("/api/images");
+      toast.success("Imagen eliminada");
     } catch (error) {
       toast.error("Error al eliminar la imagen");
     }

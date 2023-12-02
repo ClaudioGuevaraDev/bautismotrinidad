@@ -51,6 +51,7 @@ function MessagesDashboard() {
       }
 
       mutate("/api/messages");
+      toast.success("Mensaje guardado");
     } catch (error) {
       toast.error("Error al crear el mensaje");
     }
@@ -81,6 +82,7 @@ function MessagesDashboard() {
           throwOnError: true,
         }
       );
+      toast.success("Mensaje eliminado");
     } catch (error) {
       toast.error("Error al eliminar el mensaje");
     }
