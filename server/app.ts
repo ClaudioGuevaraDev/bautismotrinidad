@@ -44,4 +44,8 @@ app.use("/api/messages", messagesRoutes);
 app.use("/api/images", imagesRoutes);
 app.use("/api/settings", settingsRoutes);
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "client", "dist", "index.html"));
+});
+
 export default app;
