@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
+    "build:server": "tsc",
+    "build:client": "cd ./client && pnpm install && pnpm build",
+    "build:proyect": "pnpm install && pnpm build:server && pnpm build:client",
     "start": "node dist/index.js",
     "dev": "ts-node-dev --respawn server/index.ts",
     "format": "prettier --write server/**/*"

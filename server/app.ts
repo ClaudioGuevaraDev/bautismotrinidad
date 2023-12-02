@@ -2,6 +2,7 @@ import { v2 as cloudinary } from "cloudinary";
 import cors from "cors";
 import express from "express";
 import fileupload from "express-fileupload";
+import path from "path";
 
 import {
   CLOUDINARY_API_KEY,
@@ -35,6 +36,8 @@ app.use(
     createParentPath: true,
   })
 );
+
+app.use("/", express.static(path.join(__dirname, "..", "client", "dist")));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messagesRoutes);
