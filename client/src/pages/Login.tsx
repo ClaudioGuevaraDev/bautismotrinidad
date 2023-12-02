@@ -2,10 +2,12 @@ import axios from "axios";
 import { FormEvent, useState } from "react";
 import { useSignIn } from "react-auth-kit";
 import { decodeToken } from "react-jwt";
+import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 function Login() {
   const [credentials, setCredentials] = useState({ user: "", password: "" });
+  const navigate = useNavigate();
 
   const signIn = useSignIn();
 
@@ -28,6 +30,7 @@ function Login() {
         tokenType: "Bearer",
         authState: { user: decodedToken.user },
       });
+      navigate("/dashboard/video");
     } catch (error) {
       toast.error("Error al iniciar sesión");
     }

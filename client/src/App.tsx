@@ -1,4 +1,4 @@
-import { AuthProvider } from "react-auth-kit";
+import { AuthProvider, RequireAuth } from "react-auth-kit";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster } from "sonner";
 
@@ -18,7 +18,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard/video" element={<VideoDashboard />} />
+          <Route
+            path="/dashboard/video"
+            element={
+              <RequireAuth loginPath="/login">
+                <VideoDashboard />
+              </RequireAuth>
+            }
+          />
         </Routes>
       </BrowserRouter>
 
