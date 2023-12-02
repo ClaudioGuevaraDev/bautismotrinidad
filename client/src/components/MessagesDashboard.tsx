@@ -82,7 +82,7 @@ function MessagesDashboard() {
         }
       );
     } catch (error) {
-      toast.error("Error al crear el mensaje");
+      toast.error("Error al eliminar el mensaje");
     }
   };
 
@@ -92,7 +92,7 @@ function MessagesDashboard() {
         <input
           type="text"
           id="first_name"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-500 focus:border-fuchsia-500 block w-full p-2.5 max-w-sm"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-fuchsia-500 focus:border-fuchsia-500 block w-full p-2.5 max-w-lg"
           placeholder="Ingresa un mensaje para el video"
           value={message}
           onChange={(e) => {

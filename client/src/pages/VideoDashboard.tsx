@@ -2,6 +2,7 @@ import { Tab } from "@headlessui/react";
 import { useState } from "react";
 
 import DashboardLayout from "../components/DashboardLayout";
+import ImagesDashboard from "../components/ImagesDashboard";
 import MessagesDashboard from "../components/MessagesDashboard";
 
 const sections = ["Mensajes", "Imágenes", "Configuraciones"];
@@ -34,7 +35,9 @@ function VideoDashboard() {
             <Tab.Panel>
               <MessagesDashboard />
             </Tab.Panel>
-            <Tab.Panel>Imágenes</Tab.Panel>
+            <Tab.Panel>
+              <ImagesDashboard />
+            </Tab.Panel>
             <Tab.Panel>Configuraciones</Tab.Panel>
           </Tab.Panels>
         </Tab.Group>
