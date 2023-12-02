@@ -1,5 +1,5 @@
 interface Props {
-  image: number;
+  image: string;
 }
 
 function VideoPhoto({ image }: Props) {
@@ -7,7 +7,7 @@ function VideoPhoto({ image }: Props) {
     <div className="animate-fade animate-once animate-ease-in">
       <img
         className="object-contain w-auto rounded-[1rem] shadow-2xl"
-        src={`/imgs/foto${image}.jpg`}
+        src={image}
         alt="Trinidad"
       />
     </div>

@@ -57,6 +57,7 @@ function MessagesDashboard() {
     }
 
     setMessage("");
+    setSelectedMessage("");
   };
 
   const deleteMessage = async (id: string) => {

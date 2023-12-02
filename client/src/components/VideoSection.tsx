@@ -3,42 +3,51 @@ import "react-phone-input-2/lib/style.css";
 import { useEffect, useState } from "react";
 import PhoneInput from "react-phone-input-2";
 
+import { Image } from "../interfaces/images.interfaces";
+import { Message } from "../interfaces/messages.interfaces";
+import { Settings } from "../interfaces/settings.interfaces";
 import VideoPhoto from "./VideoPhoto";
 
-const texts: string[] = [
-  "Hola Mónica, mi nombre es Trinidad de los Ángeles 👶",
-  "Has recibido este mensaje ya que junto a mi familia consideramos que eres una persona importante en mi vida 🥰",
-  "Es por esto que me encantaría que me acompañes en mi bautismo el día 6 de enero de 2024 👼",
-  "En caso de que quieras asistir, te pido que confirmes tu asistencia al finalizar este video ❤️",
-];
+interface Props {
+  messages?: Message[] | null;
+  images?: Image[] | null;
+  settings?: Settings | null;
+}
 
-function VideoSection() {
+function VideoSection({ images, messages, settings }: Props) {
   const [text, setText] = useState<number>(0);
-  const [image, setImage] = useState<number>(1);
+  const [image, setImage] = useState<number>(0);
   const [showForm, setShowForm] = useState<boolean>(false);
 
   useEffect(() => {
+    if (!messages || !settings) return;
+
     const interval = setInterval(() => {
-      if (text + 1 === texts.length) {
+      if (text + 1 === messages.length) {
         setShowForm(true);
       } else {
         setText(text + 1);
       }
-    }, 10000);
+    }, parseInt(settings.messagesDelay));
 
     return () => clearInterval(interval);
   }, [text]);
 
   useEffect(() => {
-    setTimeout(() => {
-      setImage((prevValue) => {
-        if (prevValue === 8) {
-          return 1;
-        } else {
-          return prevValue + 1;
-        }
-      });
-    }, 10000);
+    if (!settings || !images) return;
+
+    setTimeout(
+      () => {
+        setImage((prevValue) => {
+          if (prevValue === images?.length - 1) {
+            return 0;
+          } else {
+            return prevValue + 1;
+          }
+        });
+      },
+      parseInt(settings?.imagesDelay)
+    );
   }, [image]);
 
   return (
@@ -94,23 +103,25 @@ function VideoSection() {
             </button>
           </form>
         ) : (
-          texts.map((t, index) => (
+          messages?.map((message, index) => (
             <>
               {index === text && (
                 <span
-                  key={t}
+                  key={message._id}
                   className="animate-fade animate-ease-in animate-duration-[2000ms] text-5xl font-extrabold leading-none tracking-tight text-white sm:text-6xl"
                 >
-                  {t}
+                  {message.text}
                 </span>
               )}
             </>
           ))
         )}
       </div>
-      <div className="max-w-md w-full mx-auto flex h-full items-center justify-center">
-        <VideoPhoto image={image} />
-      </div>
+      {images && (
+        <div className="max-w-md w-full mx-auto flex h-full items-center justify-center">
+          <VideoPhoto image={images[image].url} />
+        </div>
+      )}
     </div>
   );
 }

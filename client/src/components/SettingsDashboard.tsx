@@ -67,6 +67,7 @@ function SettingsDashboard() {
 
   return (
     <div className="space-y-4">
+      <p>Tiempo en milisegundos</p>
       <form onSubmit={handleSubmit} className="flex gap-2">
         <input
           type="text"
