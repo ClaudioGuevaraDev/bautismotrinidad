@@ -108,7 +108,7 @@ function VideoSection({ images, messages, settings }: Props) {
               {index === text && (
                 <span
                   key={message._id}
-                  className="animate-fade animate-ease-in animate-duration-[2000ms] text-xl font-extrabold leading-none tracking-tight text-white sm:text-3xl"
+                  className="animate-fade animate-ease-in animate-duration-[2000ms] text-2xl font-extrabold leading-none tracking-tight text-white sm:text-4xl"
                 >
                   {message.text}
                 </span>
