@@ -24,7 +24,7 @@ function VideoSection({ images, messages, settings }: Props) {
 
     const interval = setInterval(() => {
       if (text + 1 === messages.length) {
-        setShowForm(true);
+        // setShowForm(true);
       } else {
         setText(text + 1);
       }

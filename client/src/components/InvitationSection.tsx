@@ -69,7 +69,7 @@ function InvitationSection({ setSection, audioRef }: Props) {
           <h2 className="text-3xl font-extrabold leading-none tracking-tight text-white sm:text-5xl">
             Invitación Bautismo Trinidad
           </h2>
-          <p className="mt-4 text-base font-normal text-white md:max-w-3xl md:mx-auto sm:text-xl">
+          {/* <p className="mt-4 text-base font-normal text-white md:max-w-3xl md:mx-auto sm:text-xl">
             ¡Has sido invitado! Nos complace informarte que has sido invitado al
             bautismo de Trinidad de los Ángeles, que se llevará a cabo el 4 de
             enero de 2024 en San Javier.
@@ -77,7 +77,7 @@ function InvitationSection({ setSection, audioRef }: Props) {
           <p className="mt-4 text-base font-normal text-white md:max-w-3xl md:mx-auto sm:text-xl">
             Para confirmar tu asistencia, por favor, haz clic en el siguiente
             botón y completa el formulario de asistencia 👇
-          </p>
+          </p> */}
         </div>
         <div className="flex items-center justify-center gap-4 mt-4 lg:justify-start">
           <button
@@ -93,7 +93,7 @@ function InvitationSection({ setSection, audioRef }: Props) {
             <span className="text-xl font-light">
               Faltan para el bautismo de trinidad ⏰
             </span>
-            <Countdown date={new Date(2024, 0, 6)} renderer={renderer} />
+            <Countdown date={new Date(2024, 2, 9)} renderer={renderer} />
           </div>
         </div>
       </div>
